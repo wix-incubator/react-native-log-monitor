@@ -1,9 +1,9 @@
 {
-  "name": "remotedev",
-  "productName": "RemoteDev",
+  "name": "rnlogmonitor",
+  "productName": "ReactNativeLogMonitor",
   "version": "0.0.1",
   "electronVersion": "0.36.2",
   "main": "index.js",
-  "description": "Remote Redux DevTools",
-  "authors": "Mihail Diordiev"
+  "description": "React Native Log Monitor",
+  "authors": "Tal Kol"
 }

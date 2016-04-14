@@ -1,6 +1,6 @@
 {
   "osx" : {
-    "title": "RemoteDev",
+    "title": "ReactNativeLogMonitor",
     "background": "osx/installer.png",
     "icon": "osx/icon.icns",
     "icon-size": 225,
@@ -10,7 +10,7 @@
     ]
   },
   "win" : {
-    "title" : "RemoteDev",
+    "title" : "ReactNativeLogMonitor",
     "version" : "0.0.0.1",
     "icon" : "windows/icon.ico"
   }

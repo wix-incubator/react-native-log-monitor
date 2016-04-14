@@ -1,7 +1,8 @@
 import React from 'react';
 import { render } from 'react-dom';
+import DevTools from '../app';
 
 render(
-  <div>Hi!</div>,
+  <DevTools/>,
   document.getElementById('root')
 );
