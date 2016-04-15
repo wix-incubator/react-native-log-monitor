@@ -92,6 +92,7 @@
     "react-dom": "^0.14.5",
     "react-icons": "^1.0.3",
     "react-modal": "^0.6.1",
+    "react-object-inspector": "^0.2.1",
     "react-redux": "^4.0.6",
     "react-split-pane": "^0.1.30",
     "react-switcher": "^1.0.0",

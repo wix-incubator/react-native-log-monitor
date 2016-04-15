@@ -13,7 +13,21 @@ let instance;
 function handleMessage(msg) {
   const payload = parseJSON(msg.payload);
   if (!payload) return null;
-  store.dispatch(logActions.addRow({type: msg.type, payload: payload}));
+  for (let argIndex = 0 ; argIndex < Object.keys(payload).length ; argIndex++) {
+    const argPayload = payload[argIndex];
+    let text = '';
+    let object = undefined;
+    if (typeof argPayload === 'object') {
+      object = argPayload;
+    } else {
+      text = argPayload.toString();
+    }
+    store.dispatch(logActions.addRow({
+      type: msg.type,
+      text: text,
+      object: object
+    }));
+  }
 }
 
 export function createReduxStore(socketOptions, onInstancesChanged, newInstance) {
