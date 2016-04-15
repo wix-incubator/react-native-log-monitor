@@ -1,0 +1,30 @@
+.log-log {
+  font-family: Menlo, monospace;
+  font-size: 11px;
+  line-height: 26px;
+  cursor: default;
+  overflow: hidden;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1px solid #f0f0f0;
+  height: 24px;
+  padding-left: 12px;
+  padding-right: 6px;
+}
+.log-error {
+  font-family: Menlo, monospace;
+  font-size: 11px;
+  line-height: 26px;
+  cursor: default;
+  overflow: hidden;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1px solid #ffd8d8;
+  height: 24px;
+  padding-left: 12px;
+  padding-right: 6px;
+  background-color: #ffefef;
+  color: #ff0000;
+}

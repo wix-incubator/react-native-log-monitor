@@ -2,6 +2,15 @@ import React, { Component, PropTypes, createElement } from 'react';
 import { connect } from 'react-redux';
 import { AutoSizer, VirtualScroll } from 'react-virtualized';
 import 'react-virtualized/styles.css';
+import styles from '../styles';
+
+function getRowClass(type) {
+  switch (type) {
+    case 'LOG_LOG': return 'log-log';
+    case 'LOG_ERROR': return 'log-error';
+  }
+  console.log(type);
+}
 
 class LogContainer extends Component {
   render() {
@@ -12,9 +21,9 @@ class LogContainer extends Component {
           width={width}
           height={height}
           rowsCount={this.props.rows.length}
-          rowHeight={20}
+          rowHeight={24}
           rowRenderer={
-            index => <div style={{overflow: 'hidden', height: 20}}>{JSON.stringify(this.props.rows[index])}</div>
+            index => <div className={getRowClass(this.props.rows[index].type)}>{JSON.stringify(this.props.rows[index].payload)}</div>
             }
           />
         )}

@@ -6,6 +6,7 @@ import LogContainer from './containers/LogContainer';
 import { createReduxStore, updateStoreInstance } from './store/createStore';
 import ButtonBar from './components/ButtonBar';
 import Instances from './components/Instances';
+import SplitPane from 'react-split-pane';
 
 export default class App extends Component {
   static propTypes = {
@@ -85,7 +86,12 @@ export default class App extends Component {
             />
           }
         </div>
-        <LogContainer store={this.store} key={'log-container' + key} />
+        <SplitPane split="vertical" defaultSize={440} primary="second">
+          <LogContainer store={this.store} key={'log-container' + key} />
+          <div key={'right-pane' + key}>
+            hello
+          </div>
+        </SplitPane>
         <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal}
           style={styles.modal}
         >{this.modalContent}</Modal>
