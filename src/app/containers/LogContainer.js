@@ -28,7 +28,7 @@ class LogContainer extends Component {
           )}
         </AutoSizer>
         <div key='log-right-pane' style={{padding: 7}}>
-          {this.renderRightPane()}
+          {this.renderDetailsPane()}
         </div>
       </SplitPane>
     );
@@ -49,11 +49,13 @@ class LogContainer extends Component {
       row.text
     );
   }
-  renderRightPane() {
+  renderDetailsPane() {
     const selectedRow = this.props.log.rows[this.props.log.selectedRowIndex];
     if (!selectedRow) return false;
     const object = selectedRow.object;
-    if (!object) return false;
+    if (!object) return (
+      <pre className='log-text-details'>{selectedRow.text}</pre>
+    );
     return (
       <ObjectInspector data={object.asMutable()} initialExpandedPaths={['root', 'root.*']} />
     )

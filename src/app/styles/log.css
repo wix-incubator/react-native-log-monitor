@@ -47,3 +47,14 @@
 .VirtualScroll {
   outline: none;
 }
+.log-text-details {
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+  font-family: Menlo, monospace;
+  font-size: 11px;
+  line-height: 18px;
+  margin: 0;
+}
