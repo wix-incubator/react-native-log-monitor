@@ -13,20 +13,25 @@ let instance;
 function handleMessage(msg) {
   const payload = parseJSON(msg.payload);
   if (!payload) return null;
-  for (let argIndex = 0 ; argIndex < Object.keys(payload).length ; argIndex++) {
-    const argPayload = payload[argIndex];
-    let text = '';
-    let object = undefined;
-    if (typeof argPayload === 'object') {
-      object = argPayload;
-    } else {
-      text = argPayload.toString();
+  if (payload.args) {
+    for (let argIndex = 0 ; argIndex < Object.keys(payload.args).length ; argIndex++) {
+      const argPayload = payload.args[argIndex];
+      let text = '';
+      let object = undefined;
+      if (typeof argPayload === 'object') {
+        object = argPayload;
+      } else {
+        text = argPayload.toString();
+      }
+      store.dispatch(logActions.addRow({
+        type: msg.type,
+        text: text,
+        object: object,
+        timestamp: payload.ts,
+        line: payload.line,
+        stack: payload.stack
+      }));
     }
-    store.dispatch(logActions.addRow({
-      type: msg.type,
-      text: text,
-      object: object
-    }));
   }
 }
 
