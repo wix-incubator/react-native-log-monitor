@@ -3,14 +3,8 @@ import { connect } from 'react-redux';
 import { AutoSizer, VirtualScroll } from 'react-virtualized';
 import 'react-virtualized/styles.css';
 import styles from '../styles';
-
-function getRowClass(type) {
-  switch (type) {
-    case 'LOG_LOG': return 'log-log';
-    case 'LOG_ERROR': return 'log-error';
-  }
-  console.log(type);
-}
+import * as logActions from '../store/log/actions';
+import '../styles/log.css';
 
 class LogContainer extends Component {
   render() {
@@ -18,24 +12,45 @@ class LogContainer extends Component {
       <AutoSizer>
         {({ height, width }) => (
           <VirtualScroll
-          width={width}
-          height={height}
-          rowsCount={this.props.rows.length}
-          rowHeight={24}
-          rowRenderer={
-            index => <div className={getRowClass(this.props.rows[index].type)}>{JSON.stringify(this.props.rows[index].payload)}</div>
-            }
+            style={{outline: 'none'}}
+            width={width}
+            height={height}
+            rowsCount={this.props.log.rows.length}
+            rowHeight={24}
+            overscanRowsCount={10}
+            rowRenderer={this.renderRow.bind(this)}
           />
         )}
       </AutoSizer>
     );
+  }
+  renderRow(index) {
+    return (
+      <div className={this.getRowClass(index)} onClick={() => this.onRowClick(index)}>
+        {JSON.stringify(this.props.log.rows[index].payload)}
+      </div>
+    );
+  }
+  getRowClass(index) {
+    const type = this.props.log.rows[index].type;
+    let res = 'log-log';
+    switch (type) {
+      case 'LOG_ERROR': res = 'log-error'; break;
+    }
+    if (this.props.log.selectedRowIndex === index) {
+      res += ' selected';
+    }
+    return res;
+  }
+  onRowClick(index) {
+    this.props.dispatch(logActions.selectRow(index));
   }
 }
 
 // which props do we want to inject, given the global state?
 function mapStateToProps(state) {
   return {
-    rows: state.log.rows
+    log: state.log
   };
 }
 

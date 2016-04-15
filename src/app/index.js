@@ -7,6 +7,7 @@ import { createReduxStore, updateStoreInstance } from './store/createStore';
 import ButtonBar from './components/ButtonBar';
 import Instances from './components/Instances';
 import SplitPane from 'react-split-pane';
+import './styles/split-pane.css';
 
 export default class App extends Component {
   static propTypes = {
