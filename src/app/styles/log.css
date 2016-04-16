@@ -9,16 +9,16 @@
   text-overflow: ellipsis;
   border-bottom: 1px solid #f0f0f0;
   height: 24px;
-  padding-left: 12px;
+  padding-left: 8px;
   padding-right: 6px;
   cursor: pointer;
+  border-left: 4px solid #ffffff;
 }
 .log-log:hover {
   background-color: #f6f6f6;
 }
 .log-log.selected {
-  color: #ffffff;
-  background-color: #a0a0a0 !important;
+  border-left: 4px solid #3e82f7;
 }
 .log-error {
   font-family: Menlo, monospace;
@@ -31,18 +31,18 @@
   text-overflow: ellipsis;
   border-bottom: 1px solid #ffd8d8;
   height: 24px;
-  padding-left: 12px;
+  padding-left: 8px;
   padding-right: 6px;
   background-color: #ffefef;
   color: #ff0000;
   cursor: pointer;
+  border-left: 4px solid #ffffff;
 }
 .log-error:hover {
   background-color: #fee1e1;
 }
 .log-error.selected {
-  color: #ffffff;
-  background-color: #ff6060 !important;
+  border-left: 4px solid #3e82f7;
 }
 .VirtualScroll {
   outline: none;
@@ -66,6 +66,10 @@
 }
 .log-stack-func {
   color: #aa0d91;
+}
+.Pane1 {
+  display: flex;
+  flex-direction: column;
 }
 .Pane2 {
   display: flex;

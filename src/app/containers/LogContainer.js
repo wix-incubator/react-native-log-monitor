@@ -8,27 +8,35 @@ import SplitPane from 'react-split-pane';
 import ObjectInspector from '../components/react-object-inspector/ObjectInspector';
 import ObjectPreview from '../components/react-object-inspector/ObjectPreview';
 import Tabs, { TabPane } from 'rc-tabs';
+import Toolbar from '../components/Toolbar';
+import ToolbarButton from '../components/ToolbarButton';
 import '../styles/split-pane.css';
 import '../styles/log.css';
 import 'rc-tabs/assets/index.css';
+import ClearIcon from 'react-icons/lib/fa/trash';
 
 class LogContainer extends Component {
   render() {
     return (
       <SplitPane split="vertical" defaultSize={440} primary="second">
-        <AutoSizer key='left-side'>
-          {({ height, width }) => (
-            <VirtualScroll
-              style={{outline: 'none'}}
-              width={width}
-              height={height}
-              rowsCount={this.props.log.rows.length}
-              rowHeight={24}
-              overscanRowsCount={10}
-              rowRenderer={this.renderRow.bind(this)}
-            />
-          )}
-        </AutoSizer>
+        <div className='log-vertical-pane' key='log-left-pane'>
+          <Toolbar>
+            <ToolbarButton icon={ClearIcon} title="Clear" onClick={this.onClearClick.bind(this)}/>
+          </Toolbar>
+          <AutoSizer key='left-side'>
+            {({ height, width }) => (
+              <VirtualScroll
+                style={{outline: 'none'}}
+                width={width}
+                height={height}
+                rowsCount={this.props.log.rows.length}
+                rowHeight={24}
+                overscanRowsCount={10}
+                rowRenderer={this.renderRow.bind(this)}
+              />
+            )}
+          </AutoSizer>
+        </div>
         <div className='log-vertical-pane' key='log-right-pane'>
           <Tabs>
             <TabPane tab='Details' key='log-details'>
@@ -115,6 +123,9 @@ class LogContainer extends Component {
   }
   onRowClick(index) {
     this.props.dispatch(logActions.selectRow(index));
+  }
+  onClearClick() {
+    this.props.dispatch(logActions.deleteAllRows());
   }
 }
 

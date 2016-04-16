@@ -16,6 +16,11 @@ export default function log(state = initialState, action = {}) {
       return state.merge({
         selectedRowIndex: action.index
       });
+    case types.DELETE_ROWS:
+      return state.merge({
+        rows: [],
+        selectedRowIndex: undefined
+      });
     default:
       return state;
   }

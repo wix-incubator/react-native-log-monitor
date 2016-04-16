@@ -7,3 +7,7 @@ export function addRow(row) {
 export function selectRow(index) {
   return {type: types.SELECT_ROW, index: index};
 }
+
+export function deleteAllRows() {
+  return {type: types.DELETE_ROWS};
+}
