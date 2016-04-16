@@ -1,0 +1,43 @@
+.header-container {
+  background-color: #4d394b;
+  color: #ab9ba9;
+  padding: 0px;
+  text-align: center;
+  display: flex;
+  flex-flow: row nowrap;
+  flex-direction: row;
+  min-width: 300px;
+  min-height: 40px;
+  font-size: 14px;
+  line-height: 39px;
+}
+.header-icon {
+  width: 15px;
+  height: 15px;
+  margin-bottom: 2px;
+  margin-right: 5px;
+}
+.header-title {
+  display: inline-block;
+  color: #ffffff;
+  font-size: 16px;
+  margin-left: 20px;
+}
+.header-circle-icon {
+  width: 9px;
+  height: 9px;
+  color: #3d968c;
+  margin-right: 10px;
+}
+.header-button {
+  display: inline-block;
+  cursor: pointer;
+  margin-right: 30px;
+}
+.header-button:hover {
+  color: #cebdcc;
+}
+.header-right {
+  flex: 1;
+  text-align: right;
+}

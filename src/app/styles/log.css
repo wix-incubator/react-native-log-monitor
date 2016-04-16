@@ -18,7 +18,7 @@
   background-color: #f6f6f6;
 }
 .log-log.selected {
-  border-left: 4px solid #3e82f7;
+  border-left: 4px solid #3d968c;
 }
 .log-error {
   font-family: Menlo, monospace;
@@ -42,7 +42,7 @@
   background-color: #fee1e1;
 }
 .log-error.selected {
-  border-left: 4px solid #3e82f7;
+  border-left: 4px solid #3d968c;
 }
 .VirtualScroll {
   outline: none;
@@ -102,14 +102,14 @@
   border-bottom: 1px solid #cccccc;
 }
 .log-vertical-pane .rc-tabs-top .rc-tabs-ink-bar {
-  background-color: #3e82f7;
+  background-color: #3d968c;
   height: 2px;
 }
 .log-vertical-pane .rc-tabs-nav div.rc-tabs-tab-active > .rc-tabs-tab-inner {
   color: #5a5a5a;
 }
 .log-vertical-pane .rc-tabs-nav div.rc-tabs-tab-active > .rc-tabs-tab-inner:hover {
-  color: #3e82f7;
+  color: #3d968c;
 }
 .log-vertical-pane .rc-tabs-nav .rc-tabs-tab > .rc-tabs-tab-inner {
   color: #5a5a5a;
@@ -118,7 +118,7 @@
   font-weight: 400;
 }
 .log-vertical-pane .rc-tabs-nav .rc-tabs-tab > .rc-tabs-tab-inner:hover {
-  color: #3e82f7;
+  color: #3d968c;
 }
 .log-vertical-pane .rc-tabs-top .rc-tabs-nav .rc-tabs-tab {
   margin-right: 0;

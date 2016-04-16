@@ -49,38 +49,32 @@ export default class Settings extends Component {
     const { saveSettings, closeModal } = this.props;
     return (
       <Window style={styles.window}>
-        <TitleBar title="Settings" controls={false} onClosePress={closeModal}/>
-        <Box className="box"><SegmentedControl>
-          <SegmentedControl.Item title="Connection"
-            selected={this.isTab('connection')}
-            onPress={() => { this.changeTab('connection'); }}
-          >
-            <Form onSubmit={() => { saveSettings(this.state.isLocal, this.options); } }>
-              <Form.Row>
-                <Switch on={this.state.isLocal} onClick={() => this.setState({ isLocal: !this.state.isLocal })} labelStyle={styles.switchLabel}>Use local server</Switch>
-              </Form.Row>
 
-              <Form.Row visible={this.state.isLocal}>
-                <Label>Host name:</Label>
-                <TextField defaultValue={this.options.hostname}
-                  onChange={e => {this.options.hostname = e.target.value;}}
-                />
-              </Form.Row>
+        <Form onSubmit={() => { saveSettings(this.state.isLocal, this.options); } }>
+          <Form.Row>
+            <Switch on={this.state.isLocal} onClick={() => this.setState({ isLocal: !this.state.isLocal })} labelStyle={styles.switchLabel}>Use local server</Switch>
+          </Form.Row>
 
-              <Form.Row visible={this.state.isLocal}>
-                <Label>Port:</Label>
-                <TextField defaultValue={this.options.port}
-                  onChange={e => {this.options.port = e.target.value;}}
-                />
-              </Form.Row>
+          <Form.Row visible={this.state.isLocal}>
+            <Label>Host name:</Label>
+            <TextField defaultValue={this.options.hostname}
+              onChange={e => {this.options.hostname = e.target.value;}}
+            />
+          </Form.Row>
 
-              <Form.Row>
-                <PushButton onPress="submit" push color="blue">Save</PushButton>
-                <PushButton push onClick={closeModal}>Cancel</PushButton>
-              </Form.Row>
-            </Form>
-          </SegmentedControl.Item>
-        </SegmentedControl></Box>
+          <Form.Row visible={this.state.isLocal}>
+            <Label>Port:</Label>
+            <TextField defaultValue={this.options.port}
+              onChange={e => {this.options.port = e.target.value;}}
+            />
+          </Form.Row>
+
+          <Form.Row>
+            <PushButton onPress="submit" push color="blue">Save</PushButton>
+            <PushButton push onClick={closeModal}>Cancel</PushButton>
+          </Form.Row>
+        </Form>
+
       </Window>
     );
   }

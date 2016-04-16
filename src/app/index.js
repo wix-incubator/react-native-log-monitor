@@ -4,6 +4,7 @@ import { saveToStorage, getSettings, getSelectMonitor, saveSelectMonitor } from 
 import styles from './styles';
 import LogContainer from './containers/LogContainer';
 import { createReduxStore, updateStoreInstance } from './store/createStore';
+import Header from './components/Header';
 import ButtonBar from './components/ButtonBar';
 import Instances from './components/Instances';
 
@@ -75,16 +76,13 @@ export default class App extends Component {
     const key = (this.socketOptions ? this.socketOptions.hostname : '') + this.state.instance;
     return (
       <div style={styles.container}>
-        <div style={styles.buttonBar}>
+        <Header
+          openModal={this.openModal} closeModal={this.closeModal}
+          saveSettings={this.saveSettings}
+          socketOptions={this.socketOptions}
+        >
           <Instances instances={this.state.instances} onSelect={this.handleSelectInstance}/>
-          {this.props.noButtonBar ? null :
-            <ButtonBar
-              openModal={this.openModal} closeModal={this.closeModal}
-              saveSettings={this.saveSettings}
-              socketOptions={this.socketOptions}
-            />
-          }
-        </div>
+        </Header>
         <LogContainer store={this.store} key={'log-container' + key} />
         <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal}
           style={styles.modal}
