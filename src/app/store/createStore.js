@@ -23,6 +23,10 @@ function handleMessage(msg) {
       } else {
         text = argPayload.toString();
       }
+      if (msg.type === 'LOG_ERROR' && text.startsWith('Warning: ')) {
+        msg.type = 'LOG_WARN';
+        text = text.substr('Warning: '.length);
+      }
       store.dispatch(logActions.addRow({
         type: msg.type,
         text: text,

@@ -115,6 +115,7 @@ class LogContainer extends Component {
     let res = 'log-log';
     switch (type) {
       case 'LOG_ERROR': res = 'log-error'; break;
+      case 'LOG_WARN': res = 'log-warn'; break;
     }
     if (this.props.log.selectedRowIndex === index) {
       res += ' selected';
