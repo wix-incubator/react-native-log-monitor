@@ -17,8 +17,9 @@
     "compress:app": "npm run build:app && gulp compress:app",
     "clean": "rm -rf build/ && rm -rf dev/",
     "build": "rm -rf ./lib && babel ./src/app --out-dir lib",
-    "prepublish": "eslint ./src/app && npm run build && npm run build:web && npm run build:umd && npm run build:umd:min",
-    "lint": "eslint ."
+    "prepublish": "npm run snyk-protect && eslint ./src/app && npm run build && npm run build:web && npm run build:umd && npm run build:umd:min",
+    "lint": "eslint .",
+    "snyk-protect": "snyk-protect"
   },
   "main": "lib/index.js",
   "files": [
@@ -100,12 +101,14 @@
     "react-virtualized": "^6.1.2",
     "redux": "^3.0.5",
     "redux-devtools": "^3.0.1",
-    "redux-devtools-inspector": "^0.3.3",
+    "redux-devtools-inspector": "^0.11.3",
     "redux-devtools-log-monitor": "^1.0.1",
     "redux-devtools-themes": "^1.0.0",
     "redux-slider-monitor": "^1.0.2",
     "redux-thunk": "^1.0.3",
     "seamless-immutable": "^5.1.1",
-    "socketcluster-client": "^4.3.3"
-  }
+    "socketcluster-client": "^4.3.3",
+    "@snyk/protect": "latest"
+  },
+  "snyk": true
 }
